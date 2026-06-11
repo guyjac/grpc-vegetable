@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package vegetable;
+
+option java_package = "com.example.vegetable.grpc";
+option java_multiple_files = true;
+
+service VegetableService {
+  rpc GetVegetable (VegetableRequest) returns (VegetableResponse);
+  rpc CreateVegetable (VegetableRequest) returns (VegetableResponse);
+  rpc StreamVegetables (VegetableRequest) returns (stream VegetableResponse);
+}
+
+message VegetableRequest {
+  int32 id = 1;
+  string name = 2;
+  string color = 3;
+}
+
+message VegetableResponse {
+  int32 id = 1;
+  string name = 2;
+  string color = 3;
+}
+
